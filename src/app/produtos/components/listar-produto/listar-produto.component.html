@@ -1,0 +1,42 @@
+<h1>Lista de Produtos</h1>
+
+<nz-table #basicTable [nzData]="produtos" [nzScroll]="{ x: '1250px' }">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Unidade de Medida</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Produto Perecível</th>
+        <th>Data de Fabricação</th>
+        <th>Data de Validade</th>
+        <th>Vencido</th>
+        <th nzRight="0px">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of basicTable.nzData">
+        <td>{{ produto.nomeItem }}</td>
+        <td>{{ produto.unidadeMedida | titlecase}}</td>
+        <td>
+          {{
+          produto.unidadeMedida === unidadeMedida[0].value ? produto.quantidade + ' Lt' : '' ||
+          produto.unidadeMedida === unidadeMedida[1].value ? produto.quantidade + ' Kg' : '' ||
+          produto.unidadeMedida === unidadeMedida[2].value ? produto.quantidade + ' Un' : ''
+          }}
+        </td>
+        <td>{{ produto.preco | currency: 'R$ '}}</td>
+        <td>{{ produto.produtoPerecivel === true ? 'Sim' : 'Não'}}</td>
+        <td>{{ produto.dataFabricacao | date: 'dd/MM/yyyy'}}</td>
+        <td>{{ produto.dataValidade | date: 'dd/MM/yyyy'}}</td>
+        <td>{{ validacaoProdutoVencido(produto) ? 'Sim' : 'Não' }}</td>
+        <td nzRight="0px">
+          <a [routerLink]="['/produtos/editar', produto.id]">Editar</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="modalRemover(produto)">Remover</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <button class="btn-novo-produto" nz-button nzType="primary" [routerLink]="['/produtos/cadastrar']">Novo Produto</button>

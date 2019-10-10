@@ -1,0 +1,19 @@
+[?16/?08/?2019 12:33]  Leandro Silva:
+  
+Sobre o desafio frontend:
+1 - Ajuster padrão de cores, mudar ícone e ajustes que achar melhor pra visualização.
+
+2 OK - Responsividade utilizando o sistema de grids do Zorro na pagina de cadastro
+
+3 OK - Rolagem na tabela
+
+4 OK - Passar o item selecionado na grid para a outra tela sem ser pela URL
+
+5 OK - Verificar as validações de data no cadastro
+
+6 OK - Adicionar o botão de novo registro na tela de listagem de produtos
+
+7 - Documentar todos os metodos criados com uma breve explicação do que ele faz
+
+8 OK - Adicional: Verificar no site do Angular como faz pra carregar os mudulos de forma Lazy (Lazy load) e tentar aplicar nos dois modulos criados.
+

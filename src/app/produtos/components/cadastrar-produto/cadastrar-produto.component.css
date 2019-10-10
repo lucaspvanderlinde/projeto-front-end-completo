@@ -1,0 +1,25 @@
+.btn-cadastrar {
+  width: 100px;
+  margin-right: 15px;
+  margin-left: 8px;
+  margin-top: 30px;
+}
+
+.btn-cancelar {
+  width: 100px;
+}
+
+.data-fabricacao {
+  width: 200px;
+}
+
+.data-validade {
+  width: 200px;
+}
+
+@media (max-width: 519px) {
+  .btn-cancelar{
+    margin-left: 7px;
+    margin-top: 10px;
+  }
+}

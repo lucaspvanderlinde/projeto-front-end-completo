@@ -1,0 +1,98 @@
+<h1 class="titulo">Editar Produto</h1>
+
+<form nz-form [formGroup]="cadastroForm" (ngSubmit)="editar()">
+    <div nz-row nzGutter="16">
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="12" nzXXl="12">
+            <div nz-col nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" nzXXl="24">
+                <nz-form-item>
+                    <nz-form-label>Nome do item</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                      <input type="text" nz-input formControlName="nomeItem" maxlength="50">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </div>
+
+    <div nz-row nzGutter="16">
+        <div nz-col nzXs="24" nzSm="12" nzMd="24" nzLg="24" nzXl="12" nzXXl="12">
+            <div nz-col nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" nzXXl="8">
+                <nz-form-item>
+                    <nz-form-label>Unidade de medida</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                        <nz-select formControlName="unidadeMedida" nzPlaceHolder="Selecione uma opção" nzShowSearch>
+                            <nz-option *ngFor="let unidade of unidadeMedida" [nzValue]="unidade.value" [nzLabel]="unidade.label"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+
+            <div nz-col nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" nzXXl="8">
+                <nz-form-item>
+                    <nz-form-label>Quantidade</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                      <input type="text" nz-input formControlName="quantidade" currencyMask [options]="valorQuantidade">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+
+
+            <div nz-col nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" nzXXl="8">
+                <nz-form-item>
+                    <nz-form-label>Preço</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                      <input type="text" nz-input formControlName="preco"
+                      currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" placeholder="R$ 0,00">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </div>
+
+    <div nz-row nzGutter="16">
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="12" nzXXl="12">
+            <div nz-col nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" nzXXl="24">
+                <nz-form-item>
+                    <nz-form-label>Produto perecível</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                        <nz-radio-group formControlName="produtoPerecivel">
+                            <label nz-radio [nzValue]="true">Sim</label>
+                            <label nz-radio [nzValue]="false">Não</label>
+                        </nz-radio-group>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </div>
+
+    <div nz-row nzGutter="16">
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="14" nzXl="10" nzXXl="8">
+            <div class="data-fabricacao" nz-col nz-col nzXs="24" nzSm="12" nzMd="10" nzLg="12" nzXl="12" nzXXl="12">
+                <nz-form-item>
+                    <nz-form-label>Data de fabricação</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                        <nz-date-picker formControlName="dataFabricacao" [nzFormat]="dateFormat" ></nz-date-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div class="data-validade" nz-col nzXs="24" nzSm="12" nzMd="10" nzLg="12" nzXl="12" nzXXl="12">
+                <nz-form-item>
+                    <nz-form-label>Data de validade</nz-form-label>
+                    <nz-form-control nzErrorTip="Campo obrigatório!">
+                        <nz-date-picker formControlName="dataValidade" [nzFormat]="dateFormat"></nz-date-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-editar" nz-button nzType="primary">
+      Editar
+    </button>
+
+    <button class="btn-cancelar" nz-button nzType="default" (click)="cancelar()">
+      Cancelar
+    </button>
+
+</form>
+
